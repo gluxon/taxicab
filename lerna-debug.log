@@ -1,0 +1,22 @@
+0 silly input [ 'dev' ]
+1 silly flags { _: [ 'run' ],
+1 silly flags   'reject-cycles': false,
+1 silly flags   rejectCycles: false,
+1 silly flags   scope: 'koa-back',
+1 silly flags   script: 'dev',
+1 silly flags   args: [] }
+2 verbose rootPath /Users/gluxon/Developer/taxicab
+3 info version 2.5.1
+4 silly existsSync /Users/gluxon/Developer/taxicab/VERSION
+5 info scope koa-back
+6 error EPACKAGES Errored while collecting packages and package graph
+7 error Error: No packages found that match scope 'koa-back'
+7 error     at Function.filterPackages (/Users/gluxon/Developer/taxicab/node_modules/lerna/lib/PackageUtilities.js:217:17)
+7 error     at RunCommand.runPreparations (/Users/gluxon/Developer/taxicab/node_modules/lerna/lib/Command.js:326:60)
+7 error     at /Users/gluxon/Developer/taxicab/node_modules/lerna/lib/Command.js:225:18
+7 error     at new Promise (<anonymous>)
+7 error     at RunCommand.run (/Users/gluxon/Developer/taxicab/node_modules/lerna/lib/Command.js:212:14)
+7 error     at Object.handler (/Users/gluxon/Developer/taxicab/node_modules/lerna/lib/commands/RunCommand.js:45:88)
+7 error     at Object.self.runCommand (/Users/gluxon/Developer/taxicab/node_modules/yargs/lib/command.js:233:22)
+7 error     at Object.Yargs.self._parseArgs (/Users/gluxon/Developer/taxicab/node_modules/yargs/yargs.js:990:30)
+7 error     at Object.Yargs.self.parse (/Users/gluxon/Developer/taxicab/node_modules/yargs/yargs.js:532:23)

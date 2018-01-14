@@ -1,0 +1,17 @@
+{
+  "presets": [
+    ["env", { "modules": false }],
+    "react"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    "react-require",
+    "transform-object-rest-spread",
+    "transform-class-properties",
+    ["import", {
+      "libraryName": "antd",
+      "libraryDirectory": "es",
+      "style": "css"
+    }]
+  ]
+}

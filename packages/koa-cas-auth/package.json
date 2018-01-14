@@ -1,0 +1,16 @@
+{
+  "name": "koa-cas-auth",
+  "version": "1.0.0",
+  "description": "CAS 2.0 authentication for koa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "query-string": "^5.0.1",
+    "xml2js": "^0.4.19"
+  }
+}

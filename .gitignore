@@ -1,0 +1,4 @@
+node_modules
+packages/taxicab-back/uploads
+packages/taxicab-front/build
+.env

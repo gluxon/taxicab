@@ -1,0 +1,31 @@
+{
+  "name": "taxicab-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "NODE_ENV=development DEBUG=koa* nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "cas-authentication": "0.0.8",
+    "dotenv": "^4.0.0",
+    "koa": "^2.4.1",
+    "koa-body": "^2.5.0",
+    "koa-cas-auth": "^1.0.0",
+    "koa-csrf": "^3.0.6",
+    "koa-router": "^7.3.0",
+    "koa-session": "^5.5.1",
+    "lodash": "^4.17.4",
+    "mkdirp": "^0.5.1",
+    "mysql2": "^1.5.1",
+    "sequelize": "^4.29.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.8",
+    "standard": "^10.0.3"
+  }
+}

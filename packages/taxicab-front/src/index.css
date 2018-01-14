@@ -1,0 +1,16 @@
+.ant-tabs-tab-active {
+  /* Default is 500. Keeping the same weight prevents text shifting */
+  font-weight: normal !important;
+}
+
+.ant-table-tbody > tr.ant-table-expanded-row:hover > td {
+  /* The TestEditor component lives inside expanded test rows. The background
+   * color changes can get annoying, so we'll turn them off. */
+  background: none !important;
+}
+
+.ant-table-tbody > tr > td .ant-form-explain {
+  /* The TestEditor form text is improperly broken between words. Add form
+   * explanation text as an exception to word-break as a work-around. */
+  word-break: normal;
+}
