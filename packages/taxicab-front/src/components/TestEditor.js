@@ -135,7 +135,7 @@ const AssertCode = ({ getFieldDecorator, initialValue }) => {
     required
     hasFeedback
     label='Assert Code'
-    help={<p>Given <strong>student</strong> and <strong>solution</strong>, the above expression should evaluate to <strong>#t</strong>.</p>}
+    help={<p>Given <strong>student</strong> and <strong>reference</strong>, the above expression should evaluate to <strong>#t</strong>.</p>}
   >
     {fieldDecorator(<Input.TextArea
       style={{ fontFamily: 'monospace' }}

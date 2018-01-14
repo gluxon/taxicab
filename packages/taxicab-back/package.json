@@ -22,7 +22,9 @@
     "lodash": "^4.17.4",
     "mkdirp": "^0.5.1",
     "mysql2": "^1.5.1",
-    "sequelize": "^4.29.0"
+    "sequelize": "^4.29.0",
+    "taxicab-scheme-runner": "^1.0.0",
+    "taxicab-scheme-test-match": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.14.8",

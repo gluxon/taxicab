@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     points: DataTypes.INTEGER,
     function: DataTypes.STRING,
     arguments: DataTypes.STRING,
-    code: DataTypes.TEXT
+    code: DataTypes.TEXT,
+    expected: DataTypes.TEXT
   })
 
   Test.associate = models => {

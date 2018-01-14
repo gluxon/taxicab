@@ -4,6 +4,7 @@
   "description": "Grading suite for Scheme coursework",
   "main": "index.js",
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "test": "jest"
   },
   "repository": {

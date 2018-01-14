@@ -1,7 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
   const Result = sequelize.define('result', {
-    grade: DataTypes.INTEGER,
-    debug: DataTypes.TEXT
+    passed: DataTypes.BOOLEAN,
+    stdout: DataTypes.TEXT,
+    stderr: DataTypes.TEXT,
+    functionOutput: DataTypes.TEXT
   })
 
   Result.associate = models => {
