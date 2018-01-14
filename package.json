@@ -4,7 +4,7 @@
   "description": "Grading suite for Scheme coursework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/gluxon/taxicab#readme",
   "devDependencies": {
     "babel-eslint": "=7.2.1",
+    "jest": "^22.0.6",
     "lerna": "^2.5.1",
     "standard": "^10.0.3"
   },

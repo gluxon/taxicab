@@ -1,0 +1,17 @@
+{
+  "name": "taxicab-scheme-runner",
+  "version": "1.0.0",
+  "description": "Node.js module to run scheme code with plt-r5rs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests/add"
+  },
+  "author": "Brandon Cheng",
+  "license": "MIT",
+  "dependencies": {
+    "tmp": "0.0.33"
+  },
+  "devDependencies": {
+    "standard": "^10.0.3"
+  }
+}
