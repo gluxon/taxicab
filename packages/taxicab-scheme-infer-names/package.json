@@ -1,0 +1,17 @@
+{
+  "name": "taxicab-scheme-infer-names",
+  "version": "1.0.0",
+  "description": "Get all the function names in a snippet of Scheme code.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests/add"
+  },
+  "author": "Brandon Cheng",
+  "license": "MIT",
+  "dependencies": {
+    "tmp": "0.0.33"
+  },
+  "devDependencies": {
+    "standard": "^10.0.3"
+  }
+}

@@ -1,20 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Card, Button } from 'antd'
+import { Card } from 'antd'
 import SortedAssignmentList from 'containers/SortedAssignmentList'
+import CreateButton from 'components/CreateButton'
 
 export default class Assignments extends React.Component {
   render () {
     document.title = 'Assignments | Taxicab'
-    return <Card title='Assignments' extra={<CreateAssignmentButton />}>
+    return <Card title='Assignments' extra={<CreateButton to='/assignments/create' />}>
       <SortedAssignmentList />
     </Card>
   }
-}
-
-class CreateAssignmentButton extends React.PureComponent {
-  render = () =>
-    <Link to='/assignments/create'>
-      <Button type='primary' icon='plus'>Create New</Button>
-    </Link>
 }

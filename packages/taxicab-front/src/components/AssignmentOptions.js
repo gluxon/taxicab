@@ -5,7 +5,7 @@ import StandardFetchIndicator from 'components/StandardFetchIndicator'
 import AssignmentEditor from 'components/AssignmentEditor'
 import AssignmentSubmissions from 'containers/AssignmentSubmissions'
 import AssignmentTests from 'containers/AssignmentTests'
-import SourceViewer from 'components/SourceViewer'
+import SchemeSource from 'components/SchemeSource'
 
 export default class AssignmentOptions extends React.Component {
   state = {
@@ -112,6 +112,6 @@ const DeleteAssignment = ({ onDelete, assignmentId: id }) =>
 const AssignmentSourceView = pure(({ source }) =>
   <div>
     <p>Click on edit above to change the code below.</p>
-    <SourceViewer source={source} />
+    <SchemeSource>{source}</SchemeSource>
   </div>
 )

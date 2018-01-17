@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
-import SourceViewer from 'components/SourceViewer'
+import SchemeSource from 'components/SchemeSource'
 
 const mapStateToProps = state =>
-  ({ source: state.submissions.items[state.ui.selectedSubmission].code })
+  ({ children: state.submissions.items[state.ui.selectedSubmission].code })
 
-export default connect(mapStateToProps)(SourceViewer)
+export default connect(mapStateToProps)(SchemeSource)

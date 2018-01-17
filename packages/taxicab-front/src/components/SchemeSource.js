@@ -5,9 +5,9 @@ import style from 'react-syntax-highlighter/styles/prism/atom-dark'
 
 registerLanguage('scheme', scheme)
 
-const SourceViewer = ({ source }) =>
+const SchemeSource = ({ children }) =>
   <SyntaxHighlighter language='scheme' style={style}>
-    {source}
+    {children}
   </SyntaxHighlighter>
 
-export default pure(SourceViewer)
+export default pure(SchemeSource)
