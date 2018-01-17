@@ -1,8 +1,6 @@
-import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 import { Switch, Route } from 'react-router-dom'
 
-import configureStore from './configureStore'
 import history from './history'
 
 import Sidebar from 'components/Sidebar'
@@ -21,14 +19,12 @@ import { Layout } from 'antd'
 const { Content } = Layout
 
 const App = () =>
-  <Provider store={configureStore()}>
-    <ConnectedRouter history={history}>
-      <LoginSentinel
-        loginRender={() => <Login />}
-        authenticatedRender={() => <Routes />}
-      />
-    </ConnectedRouter>
-  </Provider>
+  <ConnectedRouter history={history}>
+    <LoginSentinel
+      loginRender={() => <Login />}
+      authenticatedRender={() => <Routes />}
+    />
+  </ConnectedRouter>
 
 export default App
 
