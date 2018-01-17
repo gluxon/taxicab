@@ -37,7 +37,10 @@ const credentialRequestor = cas.credentialRequestor({
   getUser: ctx => ctx.cookies.get('user', { signed: true })
 })
 
+const requireLogin = require('./middleware/requireLogin')
+
 router.use(credentialRequestor)
+router.use(requireLogin)
 
 const controllers = require('./controllers')
 for (const controller of Object.values(controllers)) {
