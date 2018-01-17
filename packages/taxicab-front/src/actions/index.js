@@ -4,6 +4,7 @@ export { default as createTestForAssignment } from 'actions/createTestForAssignm
 export { default as createUtility } from 'actions/createUtility'
 export { default as deleteAssignment } from 'actions/deleteAssignment'
 export { default as deleteTest } from 'actions/deleteTest'
+export { default as deleteUtility } from 'actions/deleteUtility'
 export { default as fetchAssignment } from 'actions/fetchAssignment'
 export { default as fetchAssignments } from 'actions/fetchAssignments'
 export { default as fetchResultsForSubmission } from 'actions/fetchResultsForSubmission'

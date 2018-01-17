@@ -51,7 +51,7 @@ reducers['RECEIVE_TEST'] = (state, action) => ({
 
 reducers['DELETE_TEST'] = (state, action) => ({
   ...state,
-  items: omit(state.items, [String(action.id)])
+  items: omit(state.items, [action.id])
 })
 
 export default createReducer(initialState, reducers)

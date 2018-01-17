@@ -1,3 +1,4 @@
+import { omit } from 'lodash'
 import { createReducer } from 'utils'
 
 const reducers = {}
@@ -71,6 +72,11 @@ reducers['UPDATE_UTILITY_NAME'] = (state, action) => ({
       name: action.name
     }
   }
+})
+
+reducers['DELETE_UTILITY'] = (state, action) => ({
+  ...state,
+  items: omit(state.items, [action.id])
 })
 
 export default createReducer(initialState, reducers)

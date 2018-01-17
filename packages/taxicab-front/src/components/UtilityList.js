@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Collapse } from 'antd'
 import UtilityEditor from 'components/UtilityEditor'
 const { Panel } = Collapse
@@ -9,18 +10,35 @@ export default class UtilityList extends React.Component {
   }
 
   render () {
-    const { utilities, createUtility, updateUtility, updateUtilityName } = this.props
+    const { utilities, createUtility, updateUtility, updateUtilityName, deleteUtility } = this.props
     return <Collapse>
       {utilities.map(utility =>
-        <Panel header={utility.name} key={utility.id}>
+        <Panel
+          header={<PanelHeader
+            utility={utility}
+            deleteUtility={deleteUtility}
+          />}
+          key={utility.id}
+        >
           <UtilityEditor
             utility={utility}
             createUtility={createUtility}
             updateUtility={updateUtility}
             updateUtilityName={name => updateUtilityName(utility.id, name)}
+            onDelete={() => deleteUtility(utility)}
           />
         </Panel>
       )}
     </Collapse>
   }
 }
+
+const PanelHeader = ({ utility, deleteUtility }) =>
+  <PanelHeaderContainer>
+    {utility.name}
+  </PanelHeaderContainer>
+
+const PanelHeaderContainer = styled.span`
+  display: flex;
+  justify-content: space-between;
+`

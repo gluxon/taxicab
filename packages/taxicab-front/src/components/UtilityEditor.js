@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form, Input, Button } from 'antd'
+import DeleteButton from 'components/DeleteButton'
 import inferNames from 'taxicab-scheme-infer-names'
 
 const formItemLayout = {
@@ -58,7 +59,7 @@ class UtilityEditor extends React.Component {
   }
 
   render () {
-    const { utility, form, onCancel } = this.props
+    const { utility, form, onCancel, onDelete } = this.props
     const { getFieldDecorator } = form
 
     const description = utility ? utility.description : null
@@ -67,7 +68,7 @@ class UtilityEditor extends React.Component {
     return <Form hideRequiredMark onSubmit={this.handleSubmit}>
       <Code {...{getFieldDecorator, onChange: this.onCodeChange, initialValue: code}} />
       <Description {...{getFieldDecorator, initialValue: description}} />
-      <CancelSubmit loading={this.state.uploading} onCancel={onCancel} />
+      <CancelSubmit loading={this.state.uploading} onCancel={onCancel} onDelete={onDelete} />
     </Form>
   }
 }
@@ -99,9 +100,13 @@ const Code = ({ getFieldDecorator, onChange, initialValue }) => {
   </Form.Item>
 }
 
-const CancelSubmit = ({ onCancel, loading }) =>
+const CancelSubmit = ({ onCancel, onDelete, loading }) =>
   <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
     { onCancel && <Button style={{ marginRight: '1em' }} onClick={onCancel}>Cancel</Button> }
+    { onDelete && <DeleteButton
+      style={{ marginRight: '1em' }}
+      confirmMessage='Are you sure you want to delete this utility?'
+      onDelete={onDelete} /> }
     <Button type='primary' htmlType='submit' loading={loading}>Submit</Button>
   </Form.Item>
 
