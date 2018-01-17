@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Assignment.associate = models => {
     Assignment.belongsTo(models.class)
+    Assignment.hasMany(models.submission, { onDelete: 'CASCADE' })
     Assignment.hasMany(models.test, { onDelete: 'CASCADE' })
   }
 

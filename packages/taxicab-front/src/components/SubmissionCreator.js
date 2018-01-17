@@ -4,16 +4,25 @@ import { Icon, Upload } from 'antd'
 class SubmissionCreator extends React.Component {
   state = { fileList: [] }
 
+  customRequest = (opts) => {
+    const { createSubmission, fetchSubmission, selectSubmission } = this.props
+    createSubmission({ file: opts.file })
+      .then(res => {
+        opts.onSuccess()
+        const id = Number(res.headers.get('location').replace('/api/submissions/', ''))
+        return fetchSubmission(id)
+      })
+      .catch(err => { opts.onError(err) })
+      .then(submission => selectSubmission(submission.id))
+  }
+
   render () {
-    const { assignmentId } = this.props
-    const action = `/api/assignments/${assignmentId}/submissions`
     return <Upload.Dragger
       accept='.rkt, .scm'
-      action={action}
       fileList={this.state.fileList}
       beforeUpload={file => this.setState({ fileList: [file] })}
       onRemove={() => this.setState({ fileList: [] })}
-      withCredentials
+      customRequest={this.customRequest}
     >
       <p className='ant-upload-drag-icon'>
         <Icon type='inbox' />

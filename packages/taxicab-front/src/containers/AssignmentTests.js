@@ -15,9 +15,8 @@ const mapStateToProps = (state, ownProps) => {
       .has(ownProps.assignmentId),
     hadErrorFetching: state.tests.hadErrorFetchingForAssignmentIds
       .has(ownProps.assignmentId),
-    tests: assignmentTests
-      ? [...assignmentTests].map(testId => state.tests.items[testId])
-      : []
+    tests: [...(assignmentTests || [])]
+      .map(testId => state.tests.items[testId])
   }
 }
 

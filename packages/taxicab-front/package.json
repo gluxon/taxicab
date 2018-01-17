@@ -4,6 +4,7 @@
   "description": "Frontend for Taxicab",
   "main": "src/index.js",
   "scripts": {
+    "dev": "npm run start",
     "start": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -37,6 +38,7 @@
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
     "react-syntax-highlighter": "^6.1.1",
+    "recompose": "^0.26.0",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",

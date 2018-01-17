@@ -1,10 +1,11 @@
 import React from 'react'
+import { pure } from 'recompose'
 import { Card, Button, Popconfirm } from 'antd'
 import StandardFetchIndicator from 'components/StandardFetchIndicator'
 import AssignmentEditor from 'components/AssignmentEditor'
-import AssignmentSourceView from 'components/AssignmentSourceView'
 import AssignmentSubmissions from 'containers/AssignmentSubmissions'
 import AssignmentTests from 'containers/AssignmentTests'
+import SourceViewer from 'components/SourceViewer'
 
 export default class AssignmentOptions extends React.Component {
   state = {
@@ -107,3 +108,10 @@ const DeleteAssignment = ({ onDelete, assignmentId: id }) =>
       Delete
     </Button>
   </Popconfirm>
+
+const AssignmentSourceView = pure(({ source }) =>
+  <div>
+    <p>Click on edit above to change the code below.</p>
+    <SourceViewer source={source} />
+  </div>
+)

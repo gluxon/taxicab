@@ -1,3 +1,6 @@
 export { default as assignments } from './assignments'
+export { default as results } from './results'
+export { default as submissions } from './submissions'
 export { default as tests } from './tests'
+export { default as ui } from './ui'
 export { default as user } from './user'

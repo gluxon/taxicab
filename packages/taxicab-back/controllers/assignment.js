@@ -90,28 +90,34 @@ router.get('/:assignment/description', async ctx => {
   ctx.body = fs.createReadStream(path.join(uploadsDir, `${ctx.assignment.id}.pdf`))
 })
 
-router.post('/:assignment/submissions', body(bodyOptions), async ctx => {
-  const netid = ctx.cookies.get('user', { signed: true })
-  try {
-    var [ user ] = await ctx.db.user.findOrCreate({ where: { netid } })
-  } catch (_) {
-    // Because we couldn't find the user or create them
-    ctx.status = 401 // unauthorized
-    return
-  }
+router.get('/:assignment/submissions', async ctx => {
+  const submissions = (ctx.user.role === 'TA' || ctx.user.role === 'Instructor')
+    ? await ctx.assignment.getSubmissions()
+    : await ctx.assignment.getSubmissions({ where: { userId: ctx.user.id } })
 
+  const submissionsWithPoints = await Promise.all(
+    submissions.map(async submission => {
+      return {
+        ...submission.toJSON(),
+        earned: await submission.earned(),
+        total: await submission.total()
+      }
+    })
+  )
+
+  ctx.body = submissionsWithPoints
+})
+
+router.post('/:assignment/submissions', body(bodyOptions), async ctx => {
   const code = await readFile(ctx.request.body.files.file.path)
   const submission = await ctx.db.submission.create({
     code: code.toString(),
     assignmentId: ctx.assignment.id,
-    userId: user.id
+    userId: ctx.user.id
   })
 
   ctx.status = 201 // created
   ctx.set({ Location: `/api/submissions/${submission.id}` })
-
-  // Run tests after response. (Note lack of await)
-  submission.execute()
 })
 
 router.get('/:assignment/tests', async ctx => {

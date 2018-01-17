@@ -105,4 +105,37 @@ reducers['DELETE_TEST'] = (state, action) => ({
       : assignment)
 })
 
+/*
+ * Submissions
+ */
+
+reducers['RECEIVE_SUBMISSIONS_FOR_ASSIGNMENT'] = (state, action) => ({
+  ...state,
+  items: Object.values(state.items).reduce((acc, assignment) => ({
+    ...acc,
+    [assignment.id]: {
+      ...assignment,
+      submissions: new Set([
+        ...(assignment.submissions || []),
+        ...action.submissions
+          .filter(submission => submission.assignmentId === assignment.id)
+          .map(submission => submission.id)
+      ])
+    }
+  }), {})
+})
+
+reducers['RECEIVE_SUBMISSION'] = (state, action) => ({
+  ...state,
+  items: Object.values(state.items).reduce((acc, assignment) => ({
+    ...acc,
+    [assignment.id]: {
+      ...assignment,
+      submissions: action.submission.assignmentId === assignment.id
+        ? new Set([...(assignment.submissions || []), action.submission.id])
+        : assignment.submissions
+    }
+  }), {})
+})
+
 export default createReducer(initialState, reducers)

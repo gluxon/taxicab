@@ -3,7 +3,11 @@ module.exports = (sequelize, DataTypes) => {
     netid: { type: DataTypes.STRING, unique: true },
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
-    role: DataTypes.ENUM('Instructor', 'TA', 'Student')
+    role: {
+      type: DataTypes.ENUM('Instructor', 'TA', 'Student'),
+      allowNull: false,
+      defaultValue: 'Student'
+    }
   })
 
   User.associate = models =>

@@ -1,3 +1,11 @@
+.ant-layout.ant-layout-has-sider > .ant-layout,
+.ant-layout.ant-layout-has-sider > .ant-layout-content {
+  /* The original overflow-x value in antd.css is "hidden". This is likely to
+   * prevent horizontal scrolling when content isn't properly responsive, but
+   * it also prevents position: sticky; from being used. */
+  overflow-x: inherit;
+}
+
 .ant-tabs-tab-active {
   /* Default is 500. Keeping the same weight prevents text shifting */
   font-weight: normal !important;
