@@ -67,13 +67,17 @@ reducers['RECEIVE_RESULTS_FOR_SUBMISSION'] = (state, action) => ({
       // These same values should have been calculated on the backend for this
       // submission since results have been returned, but we'll save a network
       // request and just update them here.
-      status: 'finished',
-      total: action.results
-        .map(result => result.test.points)
-        .reduce((acc, points) => acc + points),
-      earned: action.results
-        .map(result => result.passed ? result.test.points : 0)
-        .reduce((acc, points) => acc + points)
+      status: action.id === submission.id ? 'finished' : submission.status,
+      total: action.id === submission.id
+        ? action.results
+          .map(result => result.test.points)
+          .reduce((acc, points) => acc + points)
+        : submission.total,
+      earned: action.id === submission.id
+        ? action.results
+          .map(result => result.passed ? result.test.points : 0)
+          .reduce((acc, points) => acc + points)
+        : submission.earned
     }
   }), {})
 })

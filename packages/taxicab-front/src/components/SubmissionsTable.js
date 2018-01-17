@@ -15,8 +15,7 @@ export default class SubmissionsTable extends React.Component {
     {
       key: 'earned',
       title: 'Earned',
-      dataIndex: 'earned',
-      render: (earned, submission) =>
+      render: submission =>
         ['pending', 'running'].includes(submission.status)
           ? {
             children: <Icon type='loading' style={{ transform: 'scale(1.5)' }} />,
@@ -28,22 +27,21 @@ export default class SubmissionsTable extends React.Component {
               }
             }
           }
-          : { children: earned }
+          : { children: submission.earned }
     },
     {
       key: 'total',
       title: 'Points',
-      dataIndex: 'total',
-      render: (total, submission) => ['pending', 'running'].includes(submission.status)
+      render: submission => ['pending', 'running'].includes(submission.status)
         ? { props: { colSpan: 0 } }
-        : { children: total }
+        : { children: submission.total }
     },
     {
       key: 'grade',
       title: 'Grade',
       render: submission => ['pending', 'running'].includes(submission.status)
         ? { props: { colSpan: 0 } }
-        : { children: (submission.earned / submission.total).toFixed(5) * 100 + '%' }
+        : { children: (submission.earned / submission.total * 100).toFixed(3) + '%' }
     }
   ]
 
