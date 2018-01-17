@@ -82,6 +82,7 @@ module.exports = async args => {
   stderr = stderr
     .replace(studentFile, 'studentSubmission.scm')
     .replace(referenceFile, 'referenceFile.scm')
+    .replace(genericTesterPath, 'genericTester.scm')
 
   if (utilitiesFile) {
     stderr = stderr.replace(utilitiesFile, 'utilitiesFile.scm')
