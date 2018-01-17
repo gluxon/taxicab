@@ -109,6 +109,11 @@ router.get('/:assignment/submissions', async ctx => {
 })
 
 router.post('/:assignment/submissions', body(bodyOptions), async ctx => {
+  if (ctx.user.role === 'Student' && new Date() > ctx.assignment.dueDate) {
+    ctx.status = 403
+    return
+  }
+
   const code = await readFile(ctx.request.body.files.file.path)
   const submission = await ctx.db.submission.create({
     code: code.toString(),
