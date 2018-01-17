@@ -74,7 +74,7 @@ class AssignmentEditor extends React.Component {
     const formComponent = <Form onSubmit={this.handleSubmit}>
       <Name getFieldDecorator={getFieldDecorator} initialValue={name} />
       <Duration getFieldDecorator={getFieldDecorator} initialValue={duration} />
-      <Description getFieldDecorator={getFieldDecorator} />
+      <Description getFieldDecorator={getFieldDecorator} assignment={assignment} />
       <Solution getFieldDecorator={getFieldDecorator} initialValue={solution} />
       <Template getFieldDecorator={getFieldDecorator} initialValue={template} />
       <Submit loading={this.state.uploading} />
@@ -113,7 +113,19 @@ const Duration = ({ getFieldDecorator, initialValue }) => {
 }
 
 class Description extends React.Component {
-  state = { fileList: [] }
+  constructor (props) {
+    super(props)
+    this.state = {
+      fileList: props.assignment && props.assignment.description
+        ? [{
+          uid: 0,
+          name: `${props.assignment.name}.pdf`,
+          status: 'done',
+          url: `/api/assignments/${props.assignment.id}/description`
+        }]
+        : []
+    }
+  }
 
   onRemove = file => {
     this.setState({ fileList: [] })
