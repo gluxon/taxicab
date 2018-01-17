@@ -59,12 +59,17 @@ router.patch('/:assignment', body(bodyOptions), async ctx => {
   const assignableFields = [
     'name',
     'startDate',
-    'dueDate',
-    'solution',
-    'template'
+    'dueDate'
   ]
 
-  await ctx.assignment.update(pick(fields, assignableFields))
+  const solution = fields.solution || null
+  const template = fields.template || null
+
+  await ctx.assignment.update({
+    ...pick(fields, assignableFields),
+    solution,
+    template
+  })
   if (files.description) {
     await ctx.assignment.replaceDescriptionFile(files.description.path)
     await ctx.assignment.save()
