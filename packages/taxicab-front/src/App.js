@@ -6,6 +6,7 @@ import history from './history'
 import Sidebar from 'components/Sidebar'
 import LoginSentinel from 'containers/LoginSentinel'
 import ConnectedHeader from 'containers/ConnectedHeader'
+import Footer from 'components/Footer'
 
 import Home from 'pages/Home'
 import Login from 'pages/Login'
@@ -45,10 +46,11 @@ const MasterDetailLayout = ({ children }) =>
     <Sidebar />
     <Layout>
       <ConnectedHeader />
-      <Content>
-        <div style={{ maxWidth: '1000px', 'margin': 'auto', padding: '2em' }}>
+      <Content style={{ padding: '2em' }}>
+        <div style={{ maxWidth: '1000px', 'margin': 'auto' }}>
           {children}
         </div>
       </Content>
+      <Footer />
     </Layout>
   </Layout>
