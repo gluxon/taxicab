@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   Submission.prototype.execute = async function () {
-    const { test: Test, result: Result } = sequelize.models
+    const { test: Test, result: Result, utility: Utility } = sequelize.models
 
     this.status = 'running'
     await this.save()
@@ -36,12 +36,16 @@ module.exports = (sequelize, DataTypes) => {
     try {
       const assignment = await this.getAssignment({ include: [Test] })
       const tests = await assignment.getTests()
+      const utilities = await Utility.findAll()
+      const utilitiesCode = utilities
+        .map(utilities => utilities.code)
+        .join('\n\n')
 
       await Promise.all(tests.map(async test => {
         const output = await schemeTestMatch({
           studentCode: this.code,
           referenceCode: assignment.solution,
-          utilitiesCode: '(define (square x) (* x x))',
+          utilitiesCode: utilitiesCode,
           functionName: test.function,
           functionArguments: test.arguments,
           assertion: test.code
