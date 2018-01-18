@@ -85,6 +85,7 @@ export default class SubmissionsTable extends React.Component {
           hideOnSinglePage: true,
           pageSizeOptions: ['3', '6', '12']
         }}
+        locale={{ emptyText: 'There are no submissions yet. Make sure to start early!' }}
         footer={() => `${submissions.length} total submissions`}
       />
     </TableContainer>

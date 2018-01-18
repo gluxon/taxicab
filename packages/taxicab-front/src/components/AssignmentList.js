@@ -21,6 +21,7 @@ export default class AssignmentList extends React.Component {
         dataSource={assignments}
         loading={isFetching}
         size='large'
+        locale={{ emptyText: 'There are no assignments yet. You should make one!' }}
         renderItem={assignment => (
           <List.Item actions={assignment.description ? [<DownloadAssignment assignment={assignment} />] : []}>
             <List.Item.Meta

@@ -73,6 +73,7 @@ export default class TestTable extends React.Component {
         pagination={false}
         expandedRowKeys={expandedRowKeys}
         onExpand={this.onExpand}
+        locale={{ emptyText: 'There are no tests yet. You should make one!' }}
       /> }
       <AddTestButton icon='plus' onClick={this.addCreationRow}>
         Add Test
