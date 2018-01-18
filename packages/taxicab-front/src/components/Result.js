@@ -40,9 +40,6 @@ const Result = ({ result }) =>
 export default pure(Result)
 
 const ResultContainer = styled.div`
-  position: sticky;
-  top: 0;
-
   header {
     padding: 1em;
     border-bottom: 1px solid rgba(0,0,0, .1);
@@ -69,6 +66,5 @@ const ResultContainer = styled.div`
 
   > div {
     padding: 1em;
-    display: sticky;
   }
 `
