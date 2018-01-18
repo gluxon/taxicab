@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npm run start",
     "start": "cross-env NODE_ENV=development webpack-dev-server",
-    "build": "webpack",
+    "build": "cross-env NODE_ENV=production webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Brandon Cheng",
@@ -28,6 +28,7 @@
     "date-fns": "^1.29.0",
     "dotenv-webpack": "^1.5.4",
     "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",
     "isomorphic-fetch": "^2.2.1",
     "moment": "^2.20.1",
