@@ -29,8 +29,8 @@
     "lerna": "^2.5.1",
     "standard": "^10.0.3"
   },
-  "engines" : {
-    "node" : ">=9.4.0"
+  "engines": {
+    "node": ">=9.4.0"
   },
   "standard": {
     "parser": "babel-eslint"
