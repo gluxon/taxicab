@@ -31,7 +31,7 @@ router.get('/:utility', async ctx => {
 
 router.put('/:utility', body({ multipart: true }), async ctx => {
   const { code, description } = ctx.request.body.fields
-  ctx.utility.description = description
+  ctx.utility.description = description || null
   ctx.utility.code = code
   await ctx.utility.validate()
   await ctx.utility.save()
