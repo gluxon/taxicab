@@ -41,7 +41,9 @@ export default class SubmissionsTable extends React.Component {
       title: 'Grade',
       render: submission => ['pending', 'running'].includes(submission.status)
         ? { props: { colSpan: 0 } }
-        : { children: (submission.earned / submission.total * 100).toFixed(3) + '%' }
+        : { children: submission.total !== 0
+            ? (submission.earned / submission.total * 100).toFixed(3) + '%'
+            : '-' }
     }
   ]
 

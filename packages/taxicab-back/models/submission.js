@@ -77,7 +77,7 @@ module.exports = (sequelize, DataTypes) => {
     const tests = await this.getTests()
     return tests
       .map(test => test.points)
-      .reduce((acc, points) => acc + points)
+      .reduce((acc, points) => acc + points, 0)
   }
 
   Submission.prototype.earned = async function () {
@@ -91,7 +91,7 @@ module.exports = (sequelize, DataTypes) => {
       .map(result => result.passed
         ? tests.find(test => test.id === result.testId).points
         : 0)
-      .reduce((acc, points) => acc + points)
+      .reduce((acc, points) => acc + points, 0)
   }
 
   return Submission
