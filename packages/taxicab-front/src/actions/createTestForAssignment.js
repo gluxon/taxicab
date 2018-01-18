@@ -1,4 +1,5 @@
 import { notification } from 'antd'
+import cookie from 'cookie'
 import { standardFetchAction, createFormDataFromObject } from 'utils'
 
 export default standardFetchAction({
@@ -7,7 +8,10 @@ export default standardFetchAction({
   fetchOpts: (_, fieldValues) => ({
     method: 'POST',
     body: createFormDataFromObject(fieldValues),
-    credentials: 'include'
+    credentials: 'include',
+    headers: {
+      'X-CSRF-Token': cookie.parse(document.cookie)['csrf-token']
+    }
   }),
   receiveAction: (_, fieldValues) => {
     notification['success']({

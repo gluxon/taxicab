@@ -42,6 +42,17 @@ const requireLogin = require('./middleware/requireLogin')
 router.use(credentialRequestor)
 router.use(requireLogin)
 
+const csrf = require('koa-csrf-header')
+router.use(csrf({
+  setToken: (token, ctx) => {
+    ctx.session.csrfToken = token
+    ctx.cookies.set('csrf-token', token, {
+      signed: true,
+      httpOnly: false
+    })
+  }
+}))
+
 const controllers = require('./controllers')
 for (const controller of Object.values(controllers)) {
   router.use(controller.routes(), controller.allowedMethods())
