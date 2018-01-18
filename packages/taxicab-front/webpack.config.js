@@ -65,6 +65,6 @@ module.exports = {
     new Dotenv(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new UglifyJsPlugin()
+    ...(process.env.NODE_ENV === 'production' ? [new UglifyJsPlugin()] : [])
   ]
 }
