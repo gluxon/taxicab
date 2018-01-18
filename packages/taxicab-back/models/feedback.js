@@ -2,9 +2,9 @@ module.exports = (sequelize, DataTypes) => {
   const options = { name: { plural: 'feedback' } }
 
   const Feedback = sequelize.define('feedback', {
-    start: DataTypes.INTEGER,
-    end: DataTypes.INTEGER,
-    comment: DataTypes.TEXT
+    start: { type: DataTypes.INTEGER, allowNull: false },
+    end: { type: DataTypes.INTEGER, allowNull: false },
+    comment: { type: DataTypes.TEXT, allowNull: false }
   }, options)
 
   Feedback.associate = models => {

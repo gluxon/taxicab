@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       defaultValue: 'Pending'
     },
-    code: DataTypes.TEXT,
+    code: { type: DataTypes.TEXT, allowNull: false },
     overallFeedback: DataTypes.TEXT
   })
 

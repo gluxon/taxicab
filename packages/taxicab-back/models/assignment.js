@@ -10,7 +10,7 @@ const mkdirp = promisify(require('mkdirp'))
 
 module.exports = (sequelize, DataTypes) => {
   const Assignment = sequelize.define('assignment', {
-    name: DataTypes.STRING,
+    name: { type: DataTypes.STRING, allowNull: false },
     description: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
@@ -18,8 +18,16 @@ module.exports = (sequelize, DataTypes) => {
     },
     startDate: DataTypes.DATE,
     dueDate: DataTypes.DATE,
-    solution: DataTypes.TEXT,
-    template: DataTypes.TEXT
+    solution: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      defaultValue: ''
+    },
+    template: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      defaultValue: ''
+    }
   })
 
   Assignment.associate = models => {

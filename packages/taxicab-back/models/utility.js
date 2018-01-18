@@ -7,9 +7,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       unique: true
     },
-    description: DataTypes.TEXT,
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      defaultValue: ''
+    },
     code: {
       type: DataTypes.TEXT,
+      allowNull: false,
       validate: {
         // Ensure we can infer a name from the code snippet
         is: {

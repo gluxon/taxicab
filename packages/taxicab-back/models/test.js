@@ -1,8 +1,17 @@
 module.exports = (sequelize, DataTypes) => {
   const Test = sequelize.define('test', {
-    name: DataTypes.STRING,
-    type: DataTypes.ENUM('match', 'assert', 'bash'),
-    points: DataTypes.INTEGER,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    type: {
+      type: DataTypes.ENUM('match', 'assert', 'bash'),
+      allowNull: false
+    },
+    points: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     function: DataTypes.STRING,
     arguments: DataTypes.STRING,
     code: DataTypes.TEXT,
