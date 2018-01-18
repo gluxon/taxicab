@@ -38,7 +38,7 @@ const TestingExplanation = () =>
 
 const example = /* @scheme */`\
 (define (REF-float-equal a b tol)
-  (<= (abs (- a b) tol))
+  (<= (abs (- a b)) tol))
 `
 
 const UtilityCreatorContainer = styled.div`
