@@ -25,6 +25,10 @@ module.exports = async args => {
     assertion
   } = args
 
+  if (studentCode === undefined || referenceCode === undefined || !functionName) {
+    throw new Error('studentCode, referenceCode, and functionName must be defined')
+  }
+
   // Writing all of our code to a file allows plt-r5rs to generate smarter
   // errors. It can point out which line an exception occurred on.
   //
@@ -49,7 +53,7 @@ module.exports = async args => {
     `"${referenceFile}"`,
     utilitiesCode ? `"${utilitiesFile}"` : '""',
     functionName,
-    `(list ${functionArguments})`,
+    `(list ${functionArguments || ''})`,
     `(lambda (student reference) ${assertion})`
   ].join('\n')
 
