@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "bootstrap": "lerna bootstrap",
+    "build": "lerna run build --stream --scope=taxicab-front",
     "test": "jest"
   },
   "repository": {
