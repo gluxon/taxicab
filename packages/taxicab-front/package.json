@@ -45,7 +45,7 @@
     "reselect": "^3.0.1",
     "style-loader": "^0.19.1",
     "styled-components": "^2.4.0",
-    "taxicab-scheme-infer-names": "1.0.0",
+    "taxicab-scheme-infer-names": "^1.0.0",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.10.0"
   },

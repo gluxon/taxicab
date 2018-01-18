@@ -1,4 +1,5 @@
 node_modules
+lerna-debug.log
 packages/taxicab-back/uploads
 packages/taxicab-front/build
 .env

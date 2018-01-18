@@ -9,7 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "taxicab-scheme-runner": "1.0.0",
+    "taxicab-scheme-runner": "^1.0.0",
     "tmp": "0.0.33"
   },
   "devDependencies": {

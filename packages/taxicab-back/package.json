@@ -23,7 +23,7 @@
     "mkdirp": "^0.5.1",
     "mysql2": "^1.5.1",
     "sequelize": "^4.29.0",
-    "taxicab-scheme-infer-names": "1.0.0",
+    "taxicab-scheme-infer-names": "^1.0.0",
     "taxicab-scheme-runner": "^1.0.0",
     "taxicab-scheme-test-match": "^1.0.0"
   },
