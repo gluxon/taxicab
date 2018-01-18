@@ -16,18 +16,18 @@ const Result = ({ result }) =>
         <dt>Standard Error</dt>
         <dd>
           <pre>
-            {result.stderr.trim().length === 0
-              ? 'N/A'
-              : result.stderr}
+            {result.stderr && result.stderr.trim().length > 0
+              ? result.stderr
+              : 'N/A'}
           </pre>
         </dd>
         <dt>Standard Out</dt>
         <dd>
-          <pre>{
-            result.stdout.trim().length === 0
-            ? 'N/A'
-            : result.stdout
-          }</pre>
+          <pre>
+            {result.stdout && result.stdout.trim().length > 0
+            ? result.stdout
+            : 'N/A'}
+          </pre>
         </dd>
       </dl>
 

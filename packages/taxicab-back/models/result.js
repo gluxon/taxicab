@@ -1,8 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Result = sequelize.define('result', {
     passed: { type: DataTypes.BOOLEAN, allowNull: false },
-    stdout: { type: DataTypes.TEXT, allowNull: false, defaultValue: '' },
-    stderr: { type: DataTypes.TEXT, allowNull: false, defaultValue: '' },
+    stdout: DataTypes.TEXT,
+    stderr: DataTypes.TEXT,
     functionOutput: DataTypes.TEXT
   })
 

@@ -114,6 +114,11 @@ router.post('/:assignment/submissions', body(bodyOptions), async ctx => {
     return
   }
 
+  if (!ctx.request.body.files.file) {
+    ctx.throw(400, 'File required.')
+    return
+  }
+
   const code = await readFile(ctx.request.body.files.file.path)
   const submission = await ctx.db.submission.create({
     code: code.toString(),

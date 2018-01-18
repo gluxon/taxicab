@@ -7,11 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       unique: true
     },
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      defaultValue: ''
-    },
+    description: DataTypes.TEXT,
     code: {
       type: DataTypes.TEXT,
       allowNull: false,

@@ -18,16 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     startDate: DataTypes.DATE,
     dueDate: DataTypes.DATE,
-    solution: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      defaultValue: ''
-    },
-    template: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      defaultValue: ''
-    }
+    solution: DataTypes.TEXT,
+    template: DataTypes.TEXT
   })
 
   Assignment.associate = models => {
