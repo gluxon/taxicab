@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 
 require('dotenv').config()
@@ -63,6 +64,7 @@ module.exports = {
     }),
     new Dotenv(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    new UglifyJsPlugin()
   ]
 }
