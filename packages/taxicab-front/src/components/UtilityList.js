@@ -10,7 +10,10 @@ export default class UtilityList extends React.Component {
   }
 
   render () {
-    const { utilities, createUtility, updateUtility, updateUtilityName, deleteUtility } = this.props
+    const { utilities = [], createUtility, updateUtility, updateUtilityName, deleteUtility } = this.props
+
+    if (utilities.length === 0) return null
+
     return <Collapse>
       {utilities.map(utility =>
         <Panel
